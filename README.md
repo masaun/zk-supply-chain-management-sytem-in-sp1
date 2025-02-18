@@ -1,13 +1,8 @@
-# ZK attestation for AI-generated-contents
+# ZK for Supply Chain in SP1 / Succinct
 
 ## Introduction
-- As generative AI is evolving, AI-generated contents is also increasing.
-  - In the future, AI themself or the owner/creator of AI may hold and manage the IP of AI-generated contents.
 
-- By attesting a ZKP to AI-generated contents (i.e. images), IP of these AI-generated contents can be protected. 
-  - In this project, AI-generated images are used as a AI-generated contents.
-
-- SP1 / Succinct would be used for generating/verifying a ZKP, which is attested to AI-generated contents
+- SP1 / Succinct would be used for generating/verifying a ZKP, which is attested to the document of supply chain
 
 <br>
 
