@@ -17,7 +17,7 @@ use sp1_sdk::{include_elf, utils, ProverClient, SP1ProofWithPublicValues, SP1Std
 
 
 /// The ELF we want to execute inside the zkVM.
-const ELF: &[u8] = include_elf!("zk-attestation-for-ai-generated-contents-program");
+const ELF: &[u8] = include_elf!("zk-for-supply-chain-in-sp1-program");
 //const ELF: &[u8] = include_elf!("chess-program"); /// @dev - "chess-program" is referenced from the program/Cargo.toml
 
 #[derive(Serialize, Deserialize)]

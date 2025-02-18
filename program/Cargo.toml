@@ -1,5 +1,5 @@
 [package]
-name = "zk-for-supply-chain-in-sp1"
+name = "zk-for-supply-chain-in-sp1-program"
 version = "1.1.0"
 edition = "2021"
 publish = false
