@@ -30,7 +30,7 @@ struct RfidData { // RFID data
 }
 
 pub fn main() {
-    // @dev - Read the input data from RFID
+    // @dev - Read the input data (input stream) from RFID
     let rfid_data: RfidData = sp1_zkvm::io::read::<RfidData>();
     let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
 
@@ -50,6 +50,8 @@ pub fn main() {
 
     println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private" input (Not to be commited as a public value)
 
-    // Write the result (true or false) to the output.
-    sp1_zkvm::io::commit(&rfid_data);
+    // Write the result (true or false) to the output. (NOTE: Only value to be "public" should be commited)
+    sp1_zkvm::io::commit(&rfid_data.product_code);
+    sp1_zkvm::io::commit(&rfid_data.is_food);
+    //sp1_zkvm::io::commit(&rfid_data);
 }
