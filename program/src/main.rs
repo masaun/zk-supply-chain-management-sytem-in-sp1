@@ -26,7 +26,9 @@ struct RfidData { // RFID data
     order_date: u32,      // Timestamp
     shipping_date: u32,   // Timestamp
     supplier_ids: u32,
-    supplier_certificates: u32
+    supplier_certificates: u32,
+    supplier_signatures: String,
+    supplier_wallet_addresses: String
 }
 
 pub fn main() {
