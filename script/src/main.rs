@@ -67,12 +67,12 @@ fn main() {
         supplier_wallet_addresses: "0x7eF0C96322148918c4A47C430CFA65C6A16dcDed".to_string()
     };
 
-    let supplier_name: String = "Sunny Logistics, Inc".to_string();  // Shuld be the "private" input (Not to be commited as a public value)
+    let supplier_name: String = "Sunny Logistics, Inc".to_string();  // Shuld be the "private Output" (Not to be commited as a "public Output")
 
     // The "input stream" that the program will read from using `sp1_zkvm::io::read`.
     let mut stdin = SP1Stdin::new();
     stdin.write(&rfid_data);
-    stdin.write(&supplier_name); // Shuld be the "private" input (Not to be commited as a public value)
+    stdin.write(&supplier_name); // Shuld be the "private Output" (Not to be commited as a "public Output")
 
     println!("RFID - serial_number: {}", rfid_data.serial_number);
     println!("RFID - product_code: {}", rfid_data.product_code);
