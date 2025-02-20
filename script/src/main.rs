@@ -96,7 +96,9 @@ fn main() {
     let client = ProverClient::from_env();
 
     // Execute the program using the `ProverClient.execute` method, without generating a proof.
-    let (_, report) = client.execute(ELF, &stdin).run().unwrap(); // [Error]: thread 'main' panicked
+    let (public_output, report) = client.execute(ELF, &stdin).run().unwrap();
+    println!("public_output: {:?}", public_output); // [Log]: SP1PublicValues { buffer: Buffer { data: [1, 0, 0, 0, 1], ptr: 0 } }
+    println!("report: {:?}", report);
     println!(
         "executed program with {} cycles",
         report.total_instruction_count()
