@@ -12,7 +12,8 @@ sp1_zkvm::entrypoint!(main);
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
-struct RfidData { // RFID data
+struct ProductDetail {
+//struct RfidData { // RFID data
     serial_number: u32,
     pub product_code: u32,
     product_description: String,
@@ -33,29 +34,30 @@ struct RfidData { // RFID data
 
 pub fn main() {
     // @dev - Read the input data (input stream) from RFID
-    let rfid_data: RfidData = sp1_zkvm::io::read::<RfidData>();
+    let product_detail: ProductDetail = sp1_zkvm::io::read::<ProductDetail>();
+    //let rfid_data: RfidData = sp1_zkvm::io::read::<RfidData>();
     let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
 
-    println!("RFID - serial_number: {}", rfid_data.serial_number);
-    println!("RFID - product_code: {}", rfid_data.product_code);
-    println!("RFID - product_description: {}", rfid_data.product_description);
-    println!("RFID - batch_number: {}", rfid_data.batch_number);
-    println!("RFID - is_food: {}", rfid_data.is_food);
-    println!("RFID - expiration_date: {}", rfid_data.expiration_date);
-    println!("RFID - temperature: {}", rfid_data.temperature);
-    println!("RFID - location_origin: {}", rfid_data.location_origin);
-    println!("RFID - location_destination: {}", rfid_data.location_destination);
-    println!("RFID - order_date: {}", rfid_data.order_date);
-    println!("RFID - shipping_date: {}", rfid_data.shipping_date);
-    println!("RFID - supplier_ids: {}", rfid_data.supplier_ids);
-    println!("RFID - supplier_certificates: {}", rfid_data.supplier_certificates);
-    println!("RFID - supplier_signatures: {}", rfid_data.supplier_signatures);
-    println!("RFID - supplier_wallet_addresses: {}", rfid_data.supplier_wallet_addresses);
+    println!("ProductDetail - serial_number: {}", product_detail.serial_number);
+    println!("ProductDetail - product_code: {}", product_detail.product_code);
+    println!("ProductDetail - product_description: {}", product_detail.product_description);
+    println!("ProductDetail - batch_number: {}", product_detail.batch_number);
+    println!("ProductDetail - is_food: {}", product_detail.is_food);
+    println!("ProductDetail - expiration_date: {}", product_detail.expiration_date);
+    println!("ProductDetail - temperature: {}", product_detail.temperature);
+    println!("ProductDetail - location_origin: {}", product_detail.location_origin);
+    println!("ProductDetail - location_destination: {}", product_detail.location_destination);
+    println!("ProductDetail - order_date: {}", product_detail.order_date);
+    println!("ProductDetail - shipping_date: {}", product_detail.shipping_date);
+    println!("ProductDetail - supplier_ids: {}", product_detail.supplier_ids);
+    println!("ProductDetail - supplier_certificates: {}", product_detail.supplier_certificates);
+    println!("ProductDetail - supplier_signatures: {}", product_detail.supplier_signatures);
+    println!("ProductDetail - supplier_wallet_addresses: {}", product_detail.supplier_wallet_addresses);
 
     println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
     // Write the result (true or false) to the output. (NOTE: Only value to be "public Output" should be commited)
-    sp1_zkvm::io::commit(&rfid_data.product_code);
-    sp1_zkvm::io::commit(&rfid_data.is_food);
+    sp1_zkvm::io::commit(&product_detail.product_code);
+    sp1_zkvm::io::commit(&product_detail.is_food);
     //sp1_zkvm::io::commit(&rfid_data);
 }
