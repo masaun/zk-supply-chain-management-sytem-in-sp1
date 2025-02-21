@@ -35,7 +35,9 @@ struct RfidData { // RFID data
     order_date: u32,      // Timestamp
     shipping_date: u32,   // Timestamp
     supplier_ids: u32,
-    supplier_certificates: u32
+    supplier_certificates: u32,
+    supplier_signatures: String,
+    supplier_wallet_addresses: String
 }
 
 /**
@@ -60,15 +62,17 @@ fn main() {
         order_date: 1630000000,
         shipping_date: 1630000000,
         supplier_ids: 1,
-        supplier_certificates: 1
+        supplier_certificates: 1,
+        supplier_signatures: "0x7e4693d2d8cb28382a4ed4401cab7689ae57b7598199060dbdb03abf539106b42add2f24cfc7dad1ec1246f3ca4791b37a36a831588599d3e22075f0d772f99d1b".to_string(),
+        supplier_wallet_addresses: "0x7eF0C96322148918c4A47C430CFA65C6A16dcDed".to_string()
     };
 
-    let supplier_name: String = "Sunny Logistics, Inc".to_string();  // Shuld be the "private" input (Not to be commited as a public value)
+    let supplier_name: String = "Sunny Logistics, Inc".to_string();  // Shuld be the "private Output" (Not to be commited as a "public Output")
 
-    // The input stream that the program will read from using `sp1_zkvm::io::read`.
+    // The "input stream" that the program will read from using `sp1_zkvm::io::read`.
     let mut stdin = SP1Stdin::new();
     stdin.write(&rfid_data);
-    stdin.write(&supplier_name); // Shuld be the "private" input (Not to be commited as a public value)
+    stdin.write(&supplier_name); // Shuld be the "private Output" (Not to be commited as a "public Output")
 
     println!("RFID - serial_number: {}", rfid_data.serial_number);
     println!("RFID - product_code: {}", rfid_data.product_code);
@@ -83,6 +87,8 @@ fn main() {
     println!("RFID - shipping_date: {}", rfid_data.shipping_date);
     println!("RFID - supplier_ids: {}", rfid_data.supplier_ids);
     println!("RFID - supplier_certificates: {}", rfid_data.supplier_certificates);
+    println!("RFID - supplier_signatures: {}", rfid_data.supplier_signatures);
+    println!("RFID - supplier_wallet_addresses: {}", rfid_data.supplier_wallet_addresses);
 
     println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private" input (Not to be commited as a public value)
 
@@ -90,7 +96,9 @@ fn main() {
     let client = ProverClient::from_env();
 
     // Execute the program using the `ProverClient.execute` method, without generating a proof.
-    let (_, report) = client.execute(ELF, &stdin).run().unwrap(); // [Error]: thread 'main' panicked
+    let (public_output, report) = client.execute(ELF, &stdin).run().unwrap();
+    println!("public_output: {:?}", public_output); // [Log]: SP1PublicValues { buffer: Buffer { data: [1, 0, 0, 0, 1], ptr: 0 } }
+    println!("report: {:?}", report);
     println!(
         "executed program with {} cycles",
         report.total_instruction_count()

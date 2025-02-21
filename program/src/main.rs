@@ -26,7 +26,9 @@ struct RfidData { // RFID data
     order_date: u32,      // Timestamp
     shipping_date: u32,   // Timestamp
     supplier_ids: u32,
-    supplier_certificates: u32
+    supplier_certificates: u32,
+    supplier_signatures: String,
+    supplier_wallet_addresses: String
 }
 
 pub fn main() {
@@ -47,10 +49,12 @@ pub fn main() {
     println!("RFID - shipping_date: {}", rfid_data.shipping_date);
     println!("RFID - supplier_ids: {}", rfid_data.supplier_ids);
     println!("RFID - supplier_certificates: {}", rfid_data.supplier_certificates);
+    println!("RFID - supplier_signatures: {}", rfid_data.supplier_signatures);
+    println!("RFID - supplier_wallet_addresses: {}", rfid_data.supplier_wallet_addresses);
 
-    println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private" input (Not to be commited as a public value)
+    println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
-    // Write the result (true or false) to the output. (NOTE: Only value to be "public" should be commited)
+    // Write the result (true or false) to the output. (NOTE: Only value to be "public Output" should be commited)
     sp1_zkvm::io::commit(&rfid_data.product_code);
     sp1_zkvm::io::commit(&rfid_data.is_food);
     //sp1_zkvm::io::commit(&rfid_data);
