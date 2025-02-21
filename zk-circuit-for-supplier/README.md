@@ -25,6 +25,16 @@ cd script
 RUST_LOG=info cargo run --release -- --prove
 ```
 
+<br>
+
+## Installation - Script
+- Run the program and script at the same time:
+```bash
+(at the root directory)
+
+sh run_program_and_script.sh
+```
+
 
 <br>
 
