@@ -23,21 +23,33 @@
       <img width="779" alt="Image" src="https://github.com/user-attachments/assets/700f65ca-7cb3-4e69-a728-9a95f05c87a2" />    
      ↓
       - In Europe, `EAN` would be used - instead of `UPC` 
+        <img width="751" alt="Image" src="https://github.com/user-attachments/assets/e7c5faee-4b88-49f1-aa9c-0d0524159552" />
         <img width="799" alt="Image" src="https://github.com/user-attachments/assets/4d39097d-c1bb-4857-a6e1-45aac4e71c3b" /> 
 
-<br>
+
+   - `ISBN` (in case of Book)
+      <img width="588" alt="Image" src="https://github.com/user-attachments/assets/118e995a-1dc4-40c5-beb0-2b2806a809f3" />
 
   - `ASIN` (= The `Amazon Standard Identification Number`)
+
+
+  - `MPN` (= `Manufacturer Part Numbers`)
+     <img width="754" alt="Image" src="https://github.com/user-attachments/assets/fa26a938-08b9-4853-8174-c169cd3235a2" />
+
+  
   - `FNSKU` (= The `Fulfillment Network Stock Keeping Unit`)
       <img width="749" alt="Image" src="https://github.com/user-attachments/assets/a556e1ea-e201-45af-b3a2-d4dcd155d410" />
 
   - Merchant `SKU`
+    <img width="759" alt="Image" src="https://github.com/user-attachments/assets/df711b3d-ef55-4efa-875d-f464983c0129" />
 
+
+  
 
 (Source - Making sense of Amazon’s product codes: https://emplicit.co/making-sense-of-amazons-product-codes/ )
+(Source - Product Codes: A Comprehensive Guide: https://blog.lengow.com/product-code/ )
 
 <br>
-
 
 ## Architecture
 
@@ -97,4 +109,3 @@ zk-for-supply-chain-in-sp1
 
   - 4/ Once the logistics process would be done (finalized), each supplier can receive the fees-earned via calling the `claim()` /w their `proof`. 🟣
      => These fees will be transferred from the SC①.
-
