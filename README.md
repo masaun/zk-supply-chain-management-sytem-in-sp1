@@ -16,6 +16,29 @@
 
 <br>
 
+## Product Code
+
+- ideally, 3 type of data should be attached: 
+  - `UPC` / `GTIN`
+      <img width="779" alt="Image" src="https://github.com/user-attachments/assets/700f65ca-7cb3-4e69-a728-9a95f05c87a2" />    
+     ↓
+      - In Europe, `EAN` would be used - instead of `UPC` 
+        <img width="799" alt="Image" src="https://github.com/user-attachments/assets/4d39097d-c1bb-4857-a6e1-45aac4e71c3b" /> 
+
+<br>
+
+  - `ASIN` (= The `Amazon Standard Identification Number`)
+  - `FNSKU` (= The `Fulfillment Network Stock Keeping Unit`)
+      <img width="749" alt="Image" src="https://github.com/user-attachments/assets/a556e1ea-e201-45af-b3a2-d4dcd155d410" />
+
+  - Merchant `SKU`
+
+
+(Source - Making sense of Amazon’s product codes: https://emplicit.co/making-sense-of-amazons-product-codes/ )
+
+<br>
+
+
 ## Architecture
 
 - Prepare 3 ZK circuit for proving 3 ZKPs:
@@ -74,3 +97,4 @@ zk-for-supply-chain-in-sp1
 
   - 4/ Once the logistics process would be done (finalized), each supplier can receive the fees-earned via calling the `claim()` /w their `proof`. 🟣
      => These fees will be transferred from the SC①.
+
