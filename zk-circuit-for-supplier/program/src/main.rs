@@ -15,7 +15,8 @@ use serde::{Deserialize, Serialize};
 struct ProductDetail {
 //struct RfidData { // RFID data
     serial_number: u32,
-    pub product_code: u32,
+    pub upc_or_ean: u64, // Product Code (1) - UPC or EAN barcode (12 ~ 13 digits)
+    pub gtin: u64,       // Product Code (2) - GTIN-12 code (12 digits)
     product_description: String,
     batch_number: u16,    // Same with "Lot number"
     is_food: u8,
@@ -39,7 +40,8 @@ pub fn main() {
     let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
 
     println!("ProductDetail - serial_number: {}", product_detail.serial_number);
-    println!("ProductDetail - product_code: {}", product_detail.product_code);
+    println!("ProductDetail - upc_or_ean: {}", product_detail.upc_or_ean);
+    println!("ProductDetail - gtin: {}", product_detail.gtin);
     println!("ProductDetail - product_description: {}", product_detail.product_description);
     println!("ProductDetail - batch_number: {}", product_detail.batch_number);
     println!("ProductDetail - is_food: {}", product_detail.is_food);
@@ -57,7 +59,8 @@ pub fn main() {
     println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
     // Write the result (true or false) to the output. (NOTE: Only value to be "public Output" should be commited)
-    sp1_zkvm::io::commit(&product_detail.product_code);
+    sp1_zkvm::io::commit(&product_detail.upc_or_ean);
+    sp1_zkvm::io::commit(&product_detail.gtin);
     sp1_zkvm::io::commit(&product_detail.is_food);
     //sp1_zkvm::io::commit(&rfid_data);
 }
