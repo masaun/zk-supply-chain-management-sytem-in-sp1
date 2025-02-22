@@ -107,36 +107,34 @@ zk-for-supply-chain-in-sp1
   <img width="746" alt="Image" src="https://github.com/user-attachments/assets/e654ac97-c192-4c01-90f6-435b7dd57edf" />
 
 
-  - Key Data Elements
-    <img width="295" alt="Image" src="https://github.com/user-attachments/assets/cf40da2c-7058-4e58-a0e5-dd82c3ec0b6e" />
+- Key Data Elements
+  <img width="295" alt="Image" src="https://github.com/user-attachments/assets/cf40da2c-7058-4e58-a0e5-dd82c3ec0b6e" />
 
+- Data Requirement for each Actors
+  <img width="775" alt="Image" src="https://github.com/user-attachments/assets/11df83da-842d-4005-a2aa-927d421b655c" />
+  <img width="770" alt="Image" src="https://github.com/user-attachments/assets/02dc28eb-aad1-43ea-9026-9915bbb0d7c5" />
+  <img width="1137" alt="Image" src="https://github.com/user-attachments/assets/713fba5a-3042-4a57-9ed9-0b5f46be0bd2" />
+  <img width="1147" alt="Image" src="https://github.com/user-attachments/assets/b343f9eb-03e3-4306-a904-8a29640cdda5" />
 
-  - Data Requirement for each Actors
-     <img width="775" alt="Image" src="https://github.com/user-attachments/assets/11df83da-842d-4005-a2aa-927d421b655c" />
-     <img width="770" alt="Image" src="https://github.com/user-attachments/assets/02dc28eb-aad1-43ea-9026-9915bbb0d7c5" />
-     <img width="1137" alt="Image" src="https://github.com/user-attachments/assets/713fba5a-3042-4a57-9ed9-0b5f46be0bd2" />
-     <img width="1147" alt="Image" src="https://github.com/user-attachments/assets/b343f9eb-03e3-4306-a904-8a29640cdda5" />
-
-
-  - Critical Tracking Events (CTEs) for the Produce Industry
-    <img width="680" alt="Image" src="https://github.com/user-attachments/assets/532c7db9-b50c-47eb-9135-94a3b93281ed" />
-    <img width="685" alt="Image" src="https://github.com/user-attachments/assets/b45c72b4-9759-4506-a19a-d6d4b5b66675" />
-   <img width="606" alt="Image" src="https://github.com/user-attachments/assets/489c17be-a1cb-4bf2-957e-078b86b7722b" />
-   <img width="651" alt="Image" src="https://github.com/user-attachments/assets/0bb3f42c-4254-4b96-a245-16d267483286" />
-   <img width="737" alt="Image" src="https://github.com/user-attachments/assets/025ee8ef-bb77-4a4a-8037-05398c31fa61" />
-   <img width="583" alt="Image" src="https://github.com/user-attachments/assets/1a2e9bc6-bc34-4599-81bb-f43d85567c19" />
+- Critical Tracking Events (CTEs) for the Produce Industry
+  <img width="680" alt="Image" src="https://github.com/user-attachments/assets/532c7db9-b50c-47eb-9135-94a3b93281ed" />
+  <img width="685" alt="Image" src="https://github.com/user-attachments/assets/b45c72b4-9759-4506-a19a-d6d4b5b66675" />
+  <img width="606" alt="Image" src="https://github.com/user-attachments/assets/489c17be-a1cb-4bf2-957e-078b86b7722b" />
+  <img width="651" alt="Image" src="https://github.com/user-attachments/assets/0bb3f42c-4254-4b96-a245-16d267483286" />
+  <img width="737" alt="Image" src="https://github.com/user-attachments/assets/025ee8ef-bb77-4a4a-8037-05398c31fa61" />
+  <img width="583" alt="Image" src="https://github.com/user-attachments/assets/1a2e9bc6-bc34-4599-81bb-f43d85567c19" />
   <img width="685" alt="Image" src="https://github.com/user-attachments/assets/15d4b307-4007-49c0-bc9f-e3342636e524" />
-   <img width="683" alt="Image" src="https://github.com/user-attachments/assets/7f820e77-77ee-4394-9e0b-20f542bf8521" />
-   <img width="809" alt="Image" src="https://github.com/user-attachments/assets/e77185c7-a609-4592-a7d3-033977e33a70" />
-   <img width="632" alt="Image" src="https://github.com/user-attachments/assets/99f1be2c-499d-4fb2-af4b-fa4910c88ad7" />
+  <img width="683" alt="Image" src="https://github.com/user-attachments/assets/7f820e77-77ee-4394-9e0b-20f542bf8521" />
+  <img width="809" alt="Image" src="https://github.com/user-attachments/assets/e77185c7-a609-4592-a7d3-033977e33a70" />
+  <img width="632" alt="Image" src="https://github.com/user-attachments/assets/99f1be2c-499d-4fb2-af4b-fa4910c88ad7" />
 
 
-  - Traceability data collection in business process steps
-    <img width="1075" alt="Image" src="https://github.com/user-attachments/assets/57c38ffc-6129-47aa-96cc-dd19ae54bf26" />
-    <img width="1074" alt="Image" src="https://github.com/user-attachments/assets/cd14b041-0044-483c-9aee-b14acc5991f8" />
+- Traceability data collection in business process steps
+  <img width="1075" alt="Image" src="https://github.com/user-attachments/assets/57c38ffc-6129-47aa-96cc-dd19ae54bf26" />
+  <img width="1074" alt="Image" src="https://github.com/user-attachments/assets/cd14b041-0044-483c-9aee-b14acc5991f8" />
 
-  - The Produce Traceability Initiative (US and Canada)
-    <img width="987" alt="Image" src="https://github.com/user-attachments/assets/29c4318b-627d-4cae-97eb-3b832f6c01cd" />
+- The Produce Traceability Initiative (US and Canada)
+  <img width="987" alt="Image" src="https://github.com/user-attachments/assets/29c4318b-627d-4cae-97eb-3b832f6c01cd" />
 
 (Source -  GS1: https://www.gs1.org/standards/fresh-fruit-and-vegetable-traceability-guideline/current-standard#2-Supply-chain-context+2-1-Supply-chain-overview )
 
@@ -176,4 +174,3 @@ zk-for-supply-chain-in-sp1
 (Source - Making sense of Amazon’s product codes: https://emplicit.co/making-sense-of-amazons-product-codes/ )
 (Source - Product Codes: A Comprehensive Guide: https://blog.lengow.com/product-code/ )
 
-<br>
