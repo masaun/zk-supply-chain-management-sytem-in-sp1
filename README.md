@@ -4,15 +4,52 @@
 # 【Architecture】
 
 ## Actors in Supply Chain
+
 - 1/ Supplier (= Producer)
 - 2/ Manufacturing company
-- 3/ Wholesaler (= Distributor) (NOTE：If this is ordered via online marketplace, this process will be cut off) 
-- 4/ Retailer (NOTE：If this is ordered via online marketplace, this process will be cut off) 
-- 5/ Logistics company
-- 6/ Consumer (= Buyer)
+- 3/ Distributor (i.e. Whole Seller + Logistics company) (NOTE：If this is ordered via online marketplace, this process will be cut off) 
+- 4/ Retailer (i.e. Super Market) 🟣<-- In this project, this actor will order. 
+- 5/ Consumer 🔵<-- In this project, this actor will **not** be included.
    <img width="497" alt="Image" src="https://github.com/user-attachments/assets/e0332e9c-9a28-4533-9f4d-0368db6d61a6" />
 
 (Source：https://www.debutinfotech.com/blog/blockchain-in-supply-chain-challenges-benefits-use-cases-considerations )
+
+<br>
+
+## Userflow
+
+> Example of a simple supply chain bill flow: 🟣
+> 
+> -   **Step 1:**
+>     
+>     A **Retailer** places a purchase order with a **Distributor**.
+>     
+> -   **Step 2:**
+>     
+>     The **Distributor** then places a purchase order with a **Manufacturer** to `fulfill` the **Retailer**'s order.
+>     
+> -   **Step 3:**
+>     
+>     The **Manufacturer** produces the goods and sends an invoice to the **Distributor**.
+>     
+> -   **Step 4:**
+>     
+>     The **Distributor** pays the **Manufacturer** and then sends an invoice to the **Retailer**.
+>     
+> -   **Step 5:**
+>     
+>     The **Retailer** pays the **Distributor** upon receiving the goods and `verifying` the invoice.
+>
+
+<br>
+ 
+> Challenges in managing supply chain bill flow:
+> 
+> -   **Complex supply chains:** With multiple intermediaries, managing invoices and payments can become intricate.
+>     
+> -   **International transactions:** Currency fluctuations and different payment methods can add complexity.
+>     
+> -   **Data discrepancies:** Inaccuracies in purchase orders, delivery receipts, and invoices can lead to payment delays and disputes.
 
 <br>
 
@@ -90,12 +127,10 @@ zk-for-supply-chain-in-sp1
   <img width="768" alt="Image" src="https://github.com/user-attachments/assets/734db89a-b63c-47cf-b854-a16444fbaf1c" />
 
 - Overview of the Produce Supply Chain
-   <img width="1139" alt="Image" src="https://github.com/user-attachments/assets/ca4d2114-1bfb-413b-871a-916dc95d44d8" />
-
+  <img width="1139" alt="Image" src="https://github.com/user-attachments/assets/ca4d2114-1bfb-413b-871a-916dc95d44d8" />
 
 - Fruit & Vegetable product and data flows for end-to-end traceability
   <img width="1399" alt="Image" src="https://github.com/user-attachments/assets/8d17bd9d-2921-403a-bdc9-55678c9e3064" />
-
 
 - GS1 standards enabling traceability in the fruit and vegetable supply chain
   <img width="765" alt="Image" src="https://github.com/user-attachments/assets/a45f99bb-f07a-4b3e-a522-6c51533d69fb" />
@@ -127,7 +162,6 @@ zk-for-supply-chain-in-sp1
   <img width="683" alt="Image" src="https://github.com/user-attachments/assets/7f820e77-77ee-4394-9e0b-20f542bf8521" />
   <img width="809" alt="Image" src="https://github.com/user-attachments/assets/e77185c7-a609-4592-a7d3-033977e33a70" />
   <img width="632" alt="Image" src="https://github.com/user-attachments/assets/99f1be2c-499d-4fb2-af4b-fa4910c88ad7" />
-
 
 - Traceability data collection in business process steps
   <img width="1075" alt="Image" src="https://github.com/user-attachments/assets/57c38ffc-6129-47aa-96cc-dd19ae54bf26" />
