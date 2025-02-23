@@ -13,12 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 struct PurchaseOrder {
-    product_id: u32,
-    purchase_order_id: u32,
-    batch_number: u16,    // Same with "Lot number"
-    is_food: u8,
-    location_destination: String,     // i.e. "London"
-    order_date: u32,      // Timestamp
+    gtin: u64,          // GTIN (Global Trading International Number), which is a global "produce code"  - i.e. 9504000219109
+    batch_number: u32,  // "Lot number"
+    product_name: String,
+    product_description: String,
+    gln_source_retailer: u64,      // GLN (Global Location Number) of the sender (= Retailer) - i.e. 9506000111247
+    gln_destination_supplier: u64, // GLN (Global Location International Number) of the receiver (= Supplier) - i.e. 9516000111258
+    order_date: u32,               // UNIX Timestamp
 }
 
 pub fn main() {
@@ -26,17 +27,20 @@ pub fn main() {
     let purchase_order: PurchaseOrder = sp1_zkvm::io::read::<PurchaseOrder>();
     //let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
 
-    println!("PurchaseOrder - product_id: {}", purchase_order.product_id);
-    println!("PurchaseOrder - location_destination: {}", purchase_order.location_destination);
+    println!("PurchaseOrder - gtin: {}", purchase_order.gtin);
     println!("PurchaseOrder - batch_number: {}", purchase_order.batch_number);
-    println!("PurchaseOrder - is_food: {}", purchase_order.is_food);
-    println!("PurchaseOrder - location_destination: {}", purchase_order.location_destination);
+    println!("PurchaseOrder - product_name: {}", purchase_order.product_name);
+    println!("PurchaseOrder - product_description: {}", purchase_order.product_description);
+    println!("PurchaseOrder - gln_source_retailer: {}", purchase_order.gln_source_retailer);
+    println!("PurchaseOrder - gln_destination_supplier: {}", purchase_order.gln_destination_supplier);
     println!("PurchaseOrder - order_date: {}", purchase_order.order_date);
 
     //println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
     // Write the result (true or false) to the output. (NOTE: Only value to be "public Output" should be commited)
-    sp1_zkvm::io::commit(&product_detail.product_id);
-    sp1_zkvm::io::commit(&product_detail.purchase_order_id);
-    sp1_zkvm::io::commit(&product_detail.is_food);
+    sp1_zkvm::io::commit(&purchase_order.gtin);
+    sp1_zkvm::io::commit(&purchase_order.batch_number);
+    sp1_zkvm::io::commit(&purchase_order.gln_source_retailer);
+    sp1_zkvm::io::commit(&purchase_order.gln_destination_supplier);
+    sp1_zkvm::io::commit(&purchase_order.order_date);
 }
