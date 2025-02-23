@@ -21,7 +21,7 @@
 
 > Example of a simple supply chain bill flow: 🟣
 >
-> (- In case of Online Shopping, the **Step 1:** A **Consumer** places a purchase order with a **Retailer** + The **Retailer send a invoice to the **Customer**)
+> (- In case of Online Shopping, the **Step 1:** A **Consumer** places a purchase order with a **Retailer** /or **Supplier** + The **Retailer** /or **Supplier** send a invoice to the **Customer** + The **Consumer** pay the **Retailer** /or **Supplier**)
 > 
 > -   **Step 1:**
 >     
