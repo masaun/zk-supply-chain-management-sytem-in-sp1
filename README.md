@@ -5,9 +5,10 @@
 
 ## Actors in Supply Chain
 
-- 1/ Supplier (= Producer)
-- 2/ Manufacturing company
-- 3/ Distributor (i.e. Whole Seller + Logistics company) (NOTE：If this is ordered via online marketplace, this process will be cut off) 
+- (0/ Producer)
+- 1/ Supplier 
+- 2/ Manufacturer
+- 3/ Distributor (i.e. Logistics company)
 - 4/ Retailer (i.e. Super Market) 🟣<-- In this project, this actor will order. 
 - 5/ Consumer 🔵<-- In this project, this actor will **not** be included.
    <img width="497" alt="Image" src="https://github.com/user-attachments/assets/e0332e9c-9a28-4533-9f4d-0368db6d61a6" />
@@ -19,6 +20,8 @@
 ## Userflow
 
 > Example of a simple supply chain bill flow: 🟣
+>
+> (- In case of Online Shopping, the **Step 1:** A **Consumer** places a purchase order with a **Retailer** /or **Supplier** + The **Retailer** /or **Supplier** send a invoice to the **Customer** + The **Consumer** pay the **Retailer** /or **Supplier**)
 > 
 > -   **Step 1:**
 >     
