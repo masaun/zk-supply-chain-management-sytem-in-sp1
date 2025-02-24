@@ -12,55 +12,41 @@ sp1_zkvm::entrypoint!(main);
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
-struct ProductDetail {
-//struct RfidData { // RFID data
-    serial_number: u32,
-    pub upc_or_ean: u64, // Product Code (1) - UPC or EAN barcode (12 ~ 13 digits)
-    pub gtin: u64,       // Product Code (2) - GTIN-12 code (12 digits)
-    product_description: String,
-    batch_number: u16,    // Same with "Lot number"
-    is_food: u8,
-    //is_food: bool,       // for Food
-    expiration_date: u32,  // for Food (in timestamp)
-    temperature: u8,       // for Food. The templature that should be maintained at.
-    location_origin: String,          // i.e. "New York" -> Field type -> Slice it + Measure length of it -> Array Field type ([u8; N])
-    location_destination: String,     // i.e. "London"
-    order_date: u32,      // Timestamp
-    shipping_date: u32,   // Timestamp
-    supplier_ids: u32,
-    supplier_certificates: u32,
-    supplier_signatures: String,
-    supplier_wallet_addresses: String
+struct ShippingOrder {
+    gtin: u64,          // GTIN (Global Trading International Number), which is a global "produce code"  - i.e. 9504000219109
+    batch_number: u32,  // "Lot number"
+    manufacturer_name: String,
+    gln_source_manufacturer: u64,        // GLN (Global Location Number) of the sender (= Supplier) - i.e. 9506000111247
+    gln_destination_distributor: u64,    // GLN (Global Location International Number) of the receiver (= Manufacturer) - i.e. 9516000111258
+    purchase_order_date: u32,            // UNIX Timestamp
+    manufacturing_order_date: u32,       // UNIX Timestamp
+    shipping_order_date: u32,            // UNIX Timestamp
+    signature_of_purchase_order: String, // The ECDSA signature, which was signed by a Retailer when the Retailer ordered. This will be retrieved via the SC storage.
+    signature_of_manufacturing_order: String // The ECDSA signature, which was signed by a Supplier when the Supplier ordered. This will be retrieved via the SC storage.
 }
 
 pub fn main() {
-    // @dev - Read the input data (input stream) from RFID
-    let product_detail: ProductDetail = sp1_zkvm::io::read::<ProductDetail>();
-    //let rfid_data: RfidData = sp1_zkvm::io::read::<RfidData>();
-    let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
+    // @dev - Read the input data (input stream) from the app.
+    let shipping_order: ShippingOrder = sp1_zkvm::io::read::<ShippingOrder>();
+    //let supplier_name: String = sp1_zkvm::io::read::<String>(); // Shuld be the "private" input (Not to be commited as a public value. This value keep a "private" state)
 
-    println!("ProductDetail - serial_number: {}", product_detail.serial_number);
-    println!("ProductDetail - upc_or_ean: {}", product_detail.upc_or_ean);
-    println!("ProductDetail - gtin: {}", product_detail.gtin);
-    println!("ProductDetail - product_description: {}", product_detail.product_description);
-    println!("ProductDetail - batch_number: {}", product_detail.batch_number);
-    println!("ProductDetail - is_food: {}", product_detail.is_food);
-    println!("ProductDetail - expiration_date: {}", product_detail.expiration_date);
-    println!("ProductDetail - temperature: {}", product_detail.temperature);
-    println!("ProductDetail - location_origin: {}", product_detail.location_origin);
-    println!("ProductDetail - location_destination: {}", product_detail.location_destination);
-    println!("ProductDetail - order_date: {}", product_detail.order_date);
-    println!("ProductDetail - shipping_date: {}", product_detail.shipping_date);
-    println!("ProductDetail - supplier_ids: {}", product_detail.supplier_ids);
-    println!("ProductDetail - supplier_certificates: {}", product_detail.supplier_certificates);
-    println!("ProductDetail - supplier_signatures: {}", product_detail.supplier_signatures);
-    println!("ProductDetail - supplier_wallet_addresses: {}", product_detail.supplier_wallet_addresses);
+    println!("ShippingOrder - gtin: {}", shipping_order.gtin);
+    println!("ShippingOrder - batch_number: {}", shipping_order.batch_number);
+    println!("ShippingOrder - manufacturer_name: {}", shipping_order.manufacturer_name);
+    println!("ShippingOrder - gln_source_manufacturer: {}", shipping_order.gln_source_manufacturer);
+    println!("ShippingOrder - gln_destination_distributor: {}", shipping_order.gln_destination_distributor);
+    println!("ShippingOrder - purchase_order_date: {}", shipping_order.purchase_order_date);
+    println!("ShippingOrder - manufacturing_order_date: {}", shipping_order.manufacturing_order_date);
+    println!("ShippingOrder - shipping_order_date: {}", shipping_order.shipping_order_date);
+    println!("ShippingOrder - signature_of_purchase_order: {}", shipping_order.signature_of_purchase_order);
+    println!("ShippingOrder - signature_of_manufacturing_order: {}", shipping_order.signature_of_manufacturing_order);
 
-    println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
+    //println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
     // Write the result (true or false) to the output. (NOTE: Only value to be "public Output" should be commited)
-    sp1_zkvm::io::commit(&product_detail.upc_or_ean);
-    sp1_zkvm::io::commit(&product_detail.gtin);
-    sp1_zkvm::io::commit(&product_detail.is_food);
-    //sp1_zkvm::io::commit(&rfid_data);
+    sp1_zkvm::io::commit(&shipping_order.gtin);
+    sp1_zkvm::io::commit(&shipping_order.batch_number);
+    sp1_zkvm::io::commit(&shipping_order.gln_source_manufacturer);
+    sp1_zkvm::io::commit(&shipping_order.gln_destination_distributor);
+    sp1_zkvm::io::commit(&shipping_order.shipping_order_date);
 }
