@@ -18,9 +18,9 @@ struct ManufacturingOrder {
     supplier_name: String,
     gln_source_supplier: u64,           // GLN (Global Location Number) of the sender (= Retailer) - i.e. 9506000111247
     gln_destination_manufacturer: u64,  // GLN (Global Location International Number) of the receiver (= Supplier) - i.e. 9516000111258
-    order_date_from_retailer: u32,      // UNIX Timestamp
-    order_date_from_supplier: u32,      // UNIX Timestamp
-    signatures_from_retailer: String    // The ECDSA signature, which was signed by a Retailer when the Retailer ordered. This will be retrieved via the SC storage.
+    purchase_order_date: u32,           // UNIX Timestamp
+    manufacturing_order_date: u32,      // UNIX Timestamp
+    signature_of_purchase_order: String // The ECDSA signature, which was signed by a Retailer when the Retailer ordered. This will be retrieved via the SC storage.
 }
 
 pub fn main() {
@@ -33,9 +33,9 @@ pub fn main() {
     println!("ManufacturingOrder - supplier_name: {}", manufacturing_order.supplier_name);
     println!("ManufacturingOrder - gln_source_supplier: {}", manufacturing_order.gln_source_supplier);
     println!("ManufacturingOrder - gln_destination_manufacturer: {}", manufacturing_order.gln_destination_manufacturer);
-    println!("ManufacturingOrder - order_date_from_retailer: {}", manufacturing_order.order_date_from_retailer);
-    println!("ManufacturingOrder - order_date_from_supplier: {}", manufacturing_order.order_date_from_supplier);
-    println!("ManufacturingOrder - signatures_from_retailer: {}", manufacturing_order.signatures_from_retailer);
+    println!("ManufacturingOrder - purchase_order_date: {}", manufacturing_order.purchase_order_date);
+    println!("ManufacturingOrder - manufacturing_order_date: {}", manufacturing_order.manufacturing_order_date);
+    println!("ManufacturingOrder - signature_of_purchase_order: {}", manufacturing_order.signature_of_purchase_order);
 
     //println!("Supplier Name (private state): {}", supplier_name);  // Shuld be the "private Output" (Not to be commited as a public value)
 
@@ -44,5 +44,5 @@ pub fn main() {
     sp1_zkvm::io::commit(&manufacturing_order.batch_number);
     sp1_zkvm::io::commit(&manufacturing_order.gln_source_supplier);
     sp1_zkvm::io::commit(&manufacturing_order.gln_destination_manufacturer);
-    sp1_zkvm::io::commit(&manufacturing_order.order_date_from_supplier);
+    sp1_zkvm::io::commit(&manufacturing_order.manufacturing_order_date);
 }
