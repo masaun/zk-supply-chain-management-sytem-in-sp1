@@ -93,6 +93,11 @@ fn main() {
     let mut proof = client.prove(&pk, &stdin).run().unwrap();
     println!("Successfully generated proof!");
 
+    // Save the proof locally. (Test a round trip of proof serialization and deserialization)
+    proof.save("proof-with-pis.bin").expect("saving proof failed");
+    let deserialized_proof = SP1ProofWithPublicValues::load("proof-with-pis.bin").expect("loading proof failed");
+    println!("Successfully save the proof!");
+
     // Verify the proof.
     client.verify(&proof, &vk).expect("failed to verify proof");
     println!("Successfully verified proof!");

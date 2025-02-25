@@ -24,3 +24,6 @@ pgo-data.profdata
 ./program/Cargo.lock
 ./script/Cargo.lock
 **/Cargo.lock
+
+# Proof binaries
+proof-with-pis.bin
