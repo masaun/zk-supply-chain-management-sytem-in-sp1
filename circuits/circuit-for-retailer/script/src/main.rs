@@ -82,7 +82,9 @@ fn main() {
 
     // Generate the proof for the given program and input.
     let (pk, vk) = client.setup(ELF);
-    let mut proof = client.prove(&pk, &stdin).run().unwrap();
+    //let mut proof = client.prove(&pk, &stdin).run().unwrap();           // Generating a STARK proof
+    //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap(); // Generating a SNARK proof with Groth16
+    let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();     // Generating a SNARK proof with Plonk
     println!("Successfully generated proof!");
 
     // Save the proof locally. (Test a round trip of proof serialization and deserialization)
