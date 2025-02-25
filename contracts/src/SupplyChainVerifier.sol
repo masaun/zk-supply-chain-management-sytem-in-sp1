@@ -3,7 +3,6 @@ pragma solidity ^0.8.20;
 
 import {ISP1Verifier} from "@sp1-contracts/ISP1Verifier.sol";
 
-
 contract SupplyChainVerifier {
     /// @notice The address of the SP1 verifier contract.
     /// @dev This can either be a specific SP1Verifier for a specific version, or the
@@ -40,7 +39,8 @@ contract SupplyChainVerifier {
         view
         returns (bool)
     {
-        return ISP1Verifier(verifier).verifyProof(retailerProgramVKey, _publicValues, _proofBytes);
+        ISP1Verifier(verifier).verifyProof(retailerProgramVKey, _publicValues, _proofBytes);
+        //return ISP1Verifier(verifier).verifyProof(retailerProgramVKey, _publicValues, _proofBytes);
     }
 
     /// @notice The entrypoint for verifying the proof of a supplier's manufacturing order.
@@ -51,7 +51,8 @@ contract SupplyChainVerifier {
         view
         returns (bool)
     {
-        return ISP1Verifier(verifier).verifyProof(supplierProgramVKey, _publicValues, _proofBytes);
+        ISP1Verifier(verifier).verifyProof(supplierProgramVKey, _publicValues, _proofBytes);
+        //return ISP1Verifier(verifier).verifyProof(supplierProgramVKey, _publicValues, _proofBytes);
     }
 
     /// @notice The entrypoint for verifying the proof of a manufacturer's shipping order.
@@ -62,7 +63,8 @@ contract SupplyChainVerifier {
         view
         returns (bool)
     {
-        return ISP1Verifier(verifier).verifyProof(manufacturerProgramVKey, _publicValues, _proofBytes);
+        ISP1Verifier(verifier).verifyProof(manufacturerProgramVKey, _publicValues, _proofBytes);
+        //return ISP1Verifier(verifier).verifyProof(manufacturerProgramVKey, _publicValues, _proofBytes);
     }
 
     /// @notice The entrypoint for verifying the proof of a distributor's delivery order.
@@ -73,6 +75,7 @@ contract SupplyChainVerifier {
         view
         returns (bool)
     {
-        return ISP1Verifier(verifier).verifyProof(distributorProgramVKey, _publicValues, _proofBytes);
+        ISP1Verifier(verifier).verifyProof(distributorProgramVKey, _publicValues, _proofBytes);
+        //return ISP1Verifier(verifier).verifyProof(distributorProgramVKey, _publicValues, _proofBytes);
     }
 }
