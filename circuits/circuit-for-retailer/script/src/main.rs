@@ -13,7 +13,7 @@
 // use env_logger;
 // use log::{error, info, warn};
 use serde::{Deserialize, Serialize};
-use sp1_sdk::{include_elf, utils, ProverClient, SP1ProofWithPublicValues, SP1Stdin};
+use sp1_sdk::{include_elf, utils, ProverClient, SP1ProofWithPublicValues, SP1Stdin, HashableKey};
 
 
 /// The ELF we want to execute inside the zkVM.
@@ -80,17 +80,22 @@ fn main() {
         report.total_instruction_count()
     );
 
-    // Generate the proof for the given program and input.
+    // Setup the prover client.
     let (pk, vk) = client.setup(ELF);
+
+    // Print the verification key.
+    println!("Program Verification Key: {}", vk.bytes32());
+
+    // Generate the proof for the given program and input.
     //let mut proof = client.prove(&pk, &stdin).run().unwrap();           // Generating a STARK proof
     //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap(); // Generating a SNARK proof with Groth16
     let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();     // Generating a SNARK proof with Plonk
     println!("Successfully generated proof!");
 
     // Save the proof locally. (Test a round trip of proof serialization and deserialization)
-    proof.save("proof-with-pis.bin").expect("saving proof failed");
-    let deserialized_proof = SP1ProofWithPublicValues::load("proof-with-pis.bin").expect("loading proof failed");
-    println!("Successfully save the proof!");
+    // proof.save("proof-with-pis.bin").expect("saving proof failed");
+    // let deserialized_proof = SP1ProofWithPublicValues::load("proof-with-pis.bin").expect("loading proof failed");
+    // println!("Successfully save the proof!");
 
     // Verify the proof.
     client.verify(&proof, &vk).expect("failed to verify proof");
