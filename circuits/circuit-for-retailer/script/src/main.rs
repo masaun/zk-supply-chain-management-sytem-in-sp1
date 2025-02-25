@@ -90,6 +90,7 @@ fn main() {
     //let mut proof = client.prove(&pk, &stdin).run().unwrap();           // Generating a STARK proof
     //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap(); // Generating a SNARK proof with Groth16
     let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();     // Generating a SNARK proof with Plonk
+    println!("proof: {:?}", proof);
     println!("Successfully generated proof!");
 
     // Save the proof locally. (Test a round trip of proof serialization and deserialization)
