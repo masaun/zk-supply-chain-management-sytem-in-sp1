@@ -87,19 +87,30 @@ fn main() {
     println!("Program Verification Key: {}", vk.bytes32());
 
     // Generate the proof for the given program and input.
-    let mut proof = client.prove(&pk, &stdin).run().unwrap();                 // Generating a STARK proof (Not Compressed)
+    //let mut proof = client.prove(&pk, &stdin).run().unwrap();                 // Generating a STARK proof (Not Compressed)
     //let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();  // Generating a STARK proof (Compressed)
-    //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap();     // Generating a SNARK proof with Groth16
+    let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap();     // Generating a SNARK proof with Groth16
     //let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();       // Generating a SNARK proof with Plonk
-    println!("proof: {:?}", proof);
+    println!("proof (raw): {:?}", proof);
     println!("Successfully generated proof!");
 
-    // Save the proof locally. (Test a round trip of proof serialization and deserialization)
-    // proof.save("proof-with-pis.bin").expect("saving proof failed");
-    // let deserialized_proof = SP1ProofWithPublicValues::load("proof-with-pis.bin").expect("loading proof failed");
-    // println!("Successfully save the proof!");
+    // Get the public values as bytes.
+    let public_values = proof.public_values.as_slice();
+    println!("public values: 0x{}", hex::encode(public_values)); // [Log]: Proof type Core is not supported for onchain verification. Only Plonk and Groth16 proofs are verifiable onchain
+
+    // Get the proof as bytes.
+    let solidity_proof = proof.bytes();
+    println!("proof (for Solidity Verifier): 0x{}", hex::encode(solidity_proof));
 
     // Verify the proof.
     client.verify(&proof, &vk).expect("failed to verify proof");
     println!("Successfully verified proof!");
+
+    // Save the proof.
+    proof.save("retailer-groth16-proof.bin").expect("saving proof failed");
+    //proof.save("retailer-mock-proof.bin").expect("saving proof failed");
+    println!("Successfully save the proof!");
+    
+    let deserialized_proof = SP1ProofWithPublicValues::load("proof-with-pis.bin").expect("loading proof failed");
+    println!("Successfully deserialized a proof-saved: {:?}", deserialized_proof);
 }
