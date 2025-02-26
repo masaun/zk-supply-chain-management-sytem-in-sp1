@@ -87,9 +87,10 @@ fn main() {
     println!("Program Verification Key: {}", vk.bytes32());
 
     // Generate the proof for the given program and input.
-    //let mut proof = client.prove(&pk, &stdin).run().unwrap();           // Generating a STARK proof
-    //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap(); // Generating a SNARK proof with Groth16
-    let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();     // Generating a SNARK proof with Plonk
+    //let mut proof = client.prove(&pk, &stdin).run().unwrap();               // Generating a STARK proof
+    //let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();  // Generating a STARK proof (Compressed)
+    let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap();     // Generating a SNARK proof with Groth16
+    //let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();         // Generating a SNARK proof with Plonk
     println!("proof: {:?}", proof);
     println!("Successfully generated proof!");
 
