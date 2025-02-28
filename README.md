@@ -12,7 +12,9 @@
 
 - In each step, an actor above would prove a ZK Proof via a ZK circuit for the actor and send it to the SupplyChainManagementSystem contract (`SupplyChainManagementSystem.sol`) and stored into there and associated each other in the form of its supply chain history - so that its supply chain history can be stored on blockchain **without** that each actor reveal all their confidential business information.
   - A ZK Proof-sent would be verifiered via the verification function in the SupplyChainVerifier contract (`SupplyChainVerifier.sol`), which is called inside the SupplyChainManagementSystem contract (`SupplyChainManagementSystem.sol`).
-  - The ZK circuits for four actors would be implemented under the `./circuits` directory.
+  - The ZK circuits for four actors would be implemented under the `./circuits` directory.  
+    - **GS1 standard** would be used in each Struct data in these ZK circuit above.  
+      (More details and example use case are here: https://www.gs1.org/standards/fresh-fruit-and-vegetable-traceability-guideline/current-standard#2-Supply-chain-context+2-1-Supply-chain-overview )
 
 <br>
 
