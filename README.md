@@ -42,4 +42,9 @@
 - Actors in the Supply Chain industory  
   https://www.debutinfotech.com/blog/blockchain-in-supply-chain-challenges-benefits-use-cases-considerations
 
+<br>
+
+- Authentic Barcodes Powered by GS1 Standards: 
+  - Fresh Fruit and Vegetable Traceability Guideline:  
+    https://www.gs1.org/standards/fresh-fruit-and-vegetable-traceability-guideline/current-standard#2-Supply-chain-context+2-1-Supply-chain-overview
 
