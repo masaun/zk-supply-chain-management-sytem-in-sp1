@@ -1,4 +1,19 @@
-# SP1 Project Template Contracts
+# ZK Supply Chain Management System - Smart Contracts
+
+- The following two smart contracts has been implemented:
+  - `SupplyChainVerifier.sol` (Test file: `SupplyChainVerifier.t.sol`)
+  - `SupplyChainManagementSystem.sol` (Test file: ``SupplyChainManagementSystem.t.sol`)
+
+<br>
+
+- Due to that only invited-users are allowd to use the Succinct Prover Network for the moment, I can not prove (generate) a `Groth16`/`Plonk` proof, which can verify on EVM Chains. 
+  - Hence, I'm going to restart to implement this smart contract - once anyone are allowed to use the Succinct Prover Network.
+
+<br>
+
+<hr>
+
+# 【ref】SP1 Project Template Contracts
 
 This is a template for writing a contract that uses verification of [SP1](https://github.com/succinctlabs/sp1) PlonK proofs onchain using the [SP1VerifierGateway](https://github.com/succinctlabs/sp1-contracts/blob/main/contracts/src/SP1VerifierGateway.sol).
 
