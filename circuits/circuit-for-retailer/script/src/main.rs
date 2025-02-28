@@ -87,9 +87,9 @@ fn main() {
     println!("Program Verification Key: {}", vk.bytes32());
 
     // Generate the proof for the given program and input.
-    //let mut proof = client.prove(&pk, &stdin).run().unwrap();                 // Generating a STARK proof (Not Compressed)
+    let mut proof = client.prove(&pk, &stdin).run().unwrap();                 // Generating a STARK proof (Not Compressed)
     //let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();  // Generating a STARK proof (Compressed)
-    let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap();     // Generating a SNARK proof with Groth16
+    //let mut proof = client.prove(&pk, &stdin).groth16().run().unwrap();     // Generating a SNARK proof with Groth16
     //let mut proof = client.prove(&pk, &stdin).plonk().run().unwrap();       // Generating a SNARK proof with Plonk
     println!("proof (raw): {:?}", proof);
     println!("Successfully generated proof!");
@@ -98,7 +98,7 @@ fn main() {
     let public_values = proof.public_values.as_slice();
     println!("public values: 0x{}", hex::encode(public_values)); // [Log]: Proof type Core is not supported for onchain verification. Only Plonk and Groth16 proofs are verifiable onchain
 
-    // Get the proof as bytes.
+    // Get the proof as bytes. (NOTE: Only Groth16/Plonk proofs are supported for onchain verification)
     let solidity_proof = proof.bytes();
     println!("proof (for Solidity Verifier): 0x{}", hex::encode(solidity_proof));
 
