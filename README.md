@@ -1,4 +1,4 @@
-# ZK Supply Chain Management System
+# ZK Supply Chain Management System (built on top of SP1 zkVM powered by Succinct)
 
 ## Overview
 
