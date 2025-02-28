@@ -1,8 +1,8 @@
-# ZK for Supply Chain in SP1 / Succinct
+# ZK circuit for Supplier
 
 ## Introduction
 
-- SP1 / Succinct would be used for generating/verifying a ZKP, which is attested to the document of supply chain
+- This is the ZK circuit (on top of SP1 zkVM) for a Supplier to order a Manufacturer to manufacture these batch/lot of goods.
 
 <br>
 
@@ -38,9 +38,19 @@ sh run_program_and_script.sh
 
 <br>
 
-## NOTE
-- Currently, this project has been in progress.
+## References
+
+- Succinct:
+  - SP1 (zkVM): https://docs.succinct.xyz/docs/sp1/introduction
+  - Prover Network: https://docs.succinct.xyz/docs/network/introduction
 
 <br>
 
-## References
+- Actors in the Supply Chain industory  
+  https://www.debutinfotech.com/blog/blockchain-in-supply-chain-challenges-benefits-use-cases-considerations
+
+<br>
+
+- Authentic Barcodes Powered by GS1 Standards: 
+  - Fresh Fruit and Vegetable Traceability Guideline:  
+    https://www.gs1.org/standards/fresh-fruit-and-vegetable-traceability-guideline/current-standard#2-Supply-chain-context+2-1-Supply-chain-overview
