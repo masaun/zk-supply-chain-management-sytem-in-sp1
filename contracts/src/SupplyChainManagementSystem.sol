@@ -11,5 +11,5 @@ contract SupplyChainManagementSystem {
         supplyChainVerifier = _supplyChainVerifier;
     }
 
-    // [TODO]: Implement the functions to manage the supply chain.
+    // [TODO]: Once the Succinct Prover Network is ready for everyone (NOTE: Currently, it is for invited-users only), I will implement this SupplyChainManagementSystem contract.
 }
